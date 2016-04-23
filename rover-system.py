@@ -2,10 +2,9 @@ from bottle import route, run, template, static_file
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-STATIC_PATH = os.path.join(BASE_DIR,'static')
+STATIC_PATH = os.path.join(BASE_DIR,'assets')
 
-
-@route('/static/:path#.+#', name='static')
+@route('/assets/:path#.+#', name='assets')
 def static(path):
     return static_file(path, root=STATIC_PATH)
 
