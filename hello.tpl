@@ -83,7 +83,7 @@ $(document).ready(function () {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html"><img src="assets/img/logo30.png" alt=""> BLOCKS Dashboard</a>
+          <a class="navbar-brand" href="index.html"><img src="assets/img/logo30.png" alt=""> ROVER System - Mission to Mars</a>
         </div> 
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
