@@ -276,7 +276,7 @@ $(document).ready(function () {
 			$("#status").addClass("label label-danger");
 			$( "#status").text("Abortada");
 
-			$.post( "/comandos", { comando: "D"})
+			$.post( "/comandos", { comando: "R"})
 			.done(function( data ) {
 			});
 		});
