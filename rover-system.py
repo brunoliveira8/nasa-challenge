@@ -1,4 +1,4 @@
-from bottle import route, run, template, static_file, response
+from bottle import route, run, template, static_file, response, request
 from json import dumps
 import os
 
@@ -21,6 +21,12 @@ def medidas():
 	response.content_type = 'application/json'
 	return dumps(rv)
 
+
+@route('/comandos', method='POST')
+def comandos():
+	com = request.forms.get('comando')
+	print com
+	return "Success"
 
 
 run(host='localhost', port=8080, debug=True)

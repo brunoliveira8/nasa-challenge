@@ -130,7 +130,7 @@ $(document).ready(function () {
       <!-- DONUT CHART BLOCK -->
         <div class="col-sm-3 col-lg-3">
       		<div class="dash-unit">
-		  		<dtitle>Controle</dtitle>
+		  		<dtitle>Incidência de Raios</dtitle>
 		  		<hr>
 		  		<div class="info-user">
 	      				<i class="fa fa-sun-o fa-2x" aria-hidden="true"></i>
@@ -247,6 +247,9 @@ $(document).ready(function () {
 			$("#status").removeClass();
 			$("#status").addClass("label label-success");
 			$("#status").text("Em andamento");
+			$.post( "/comandos", { comando: "G"})
+			.done(function( data ) {
+			});
 
 		});
 
@@ -258,6 +261,10 @@ $(document).ready(function () {
 			$("#status").removeClass();
 			$("#status").addClass("label label-warning");
 			$("#status").text("Atenção");
+
+			$.post( "/comandos", { comando: "Y"})
+			.done(function( data ) {
+			});
 		});
 
 		$( "#danger" ).click(function() {
@@ -268,6 +275,10 @@ $(document).ready(function () {
 			$("#status").removeClass();
 			$("#status").addClass("label label-danger");
 			$( "#status").text("Abortada");
+
+			$.post( "/comandos", { comando: "D"})
+			.done(function( data ) {
+			});
 		});
 
 		
@@ -276,7 +287,6 @@ $(document).ready(function () {
 				$.each( data, function( key, val ) {
 					$("#temp").text(val.temp);
 					$("#lux").text(val.lux);
-					console.log("oi")
 				});
 			}); 
 		}
