@@ -1,4 +1,5 @@
-from bottle import route, run, template, static_file
+from bottle import route, run, template, static_file, response
+from json import dumps
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -11,6 +12,14 @@ def static(path):
 @route('/')
 def index():
     return template('hello')
+
+
+
+@route('/medidas')
+def medidas():
+	rv = [{ "temp": 1, "lux": 2}]
+	response.content_type = 'application/json'
+	return dumps(rv)
 
 
 

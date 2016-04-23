@@ -11,6 +11,7 @@
     <link href="assets/css/main.css" rel="stylesheet">
     <link href="assets/css/font-style.css" rel="stylesheet">
     <link href="assets/css/flexslider.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.css" rel="stylesheet">
     
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
@@ -113,21 +114,15 @@ $(document).ready(function () {
 
       <!-- DONUT CHART BLOCK -->
         <div class="col-sm-3 col-lg-3">   
-      		<div class="half-unit">
+      		<div class="dash-unit">
 	      		<dtitle>Temperatura Externa</dtitle>
 	      		<hr>
-	      		<div class="cont">
-      			<p><bold>27°</bold></p>
-      			<p>Celsius</p>
+	      		<div class="info-user">
+	      			<i class="fa fa-tachometer fa-2x" aria-hidden="true"></i>
 	      		</div>
-      		</div>
-
-      		<div class="half-unit">
-	      		<dtitle>Radiação</dtitle>
-	      		<hr>
 	      		<div class="cont">
-      			<p><bold>1600</bold></p>
-      			<p>radiancia</p>
+	      			<p><bold id="temp">27°</bold></p>
+	      			<p>Celsius</p>
 	      		</div>
       		</div>
         </div>
@@ -136,7 +131,14 @@ $(document).ready(function () {
         <div class="col-sm-3 col-lg-3">
       		<div class="dash-unit">
 		  		<dtitle>Controle</dtitle>
-		  		<hr>	
+		  		<hr>
+		  		<div class="info-user">
+	      				<i class="fa fa-sun-o fa-2x" aria-hidden="true"></i>
+	      			</div>
+		  		<div class="cont">
+		  			<p><bold id="lux">1600</bold></p>
+      				<p>Radiancia</p>
+		  		</div>	
 	        	
 			</div>
         </div>
@@ -220,10 +222,6 @@ $(document).ready(function () {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
-	<script type="text/javascript" src="assets/js/lineandbars.js"></script>
-    
-	<script type="text/javascript" src="assets/js/dash-charts.js"></script>
-	<script type="text/javascript" src="assets/js/gauge.js"></script>
 	
 	<!-- NOTY JAVASCRIPT -->
 	<script type="text/javascript" src="assets/js/noty/jquery.noty.js"></script>
@@ -235,7 +233,6 @@ $(document).ready(function () {
 	<!-- You can add more layouts if you want -->
 	<script type="text/javascript" src="assets/js/noty/themes/default.js"></script>
     <!-- <script type="text/javascript" src="assets/js/dash-noty.js"></script> This is a Noty bubble when you init the theme-->
-	<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
 	<script src="assets/js/jquery.flexslider.js" type="text/javascript"></script>
 
     <script type="text/javascript" src="assets/js/admin.js"></script>
@@ -250,6 +247,7 @@ $(document).ready(function () {
 			$("#status").removeClass();
 			$("#status").addClass("label label-success");
 			$("#status").text("Em andamento");
+
 		});
 
 		$( "#warning" ).click(function() {
@@ -270,10 +268,19 @@ $(document).ready(function () {
 			$("#status").removeClass();
 			$("#status").addClass("label label-danger");
 			$( "#status").text("Abortada");
-
-
-
 		});
+
+		
+		setInterval(function(){ 
+			$.getJSON( "/medidas", function( data ) {
+				$.each( data, function( key, val ) {
+					$("#temp").text(val.temp);
+					$("#lux").text(val.lux);
+					console.log("oi")
+				});
+			}); 
+		}
+		, 10000);
 
     </script>
   
