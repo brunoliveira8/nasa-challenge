@@ -1,1 +1,5 @@
-# nasa-challenge
+# Nasa-Challenge - ROCK-IT SPACE FASHION AND DESIGN - Space Station
+
+# WITW (What is the weather?) Suit
+
+We developed an environmental monitoring device that is attached to the spacesuit and a computer system that communicates with the spacesuit device. The device transmits environmental information to the computer system in real time. This information is showed at the computer system screen. Also, the computer system can send information to the device. As an application scenario, we can imagine that two astronauts are in a mission in Mars and they leave the base station in a rover to repair some machine. The Astronaut 1 stay in the rover (which has the computer system), while the Astronaut 2 go outside the rover to the repair. The Astronaut 1 can see the environmental variables of the Astronaut 1's device in real time and analyze if there are any risks. Supposing that the Astronaut 1 notices that the temperature value is decreasing very fast and probably a sand storming is coming, he can send an alert to the Astronaut 2 and the Astronaut 2 will abort the mission.
